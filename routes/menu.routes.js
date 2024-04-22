@@ -1,17 +1,21 @@
-import {Router} from "express";
-import { addMenu, deleteMenu, getMenus, updateMenu } from "../controllers/menu.controllers";
+import { Router } from "express";
+import {
+  addMenu,
+  deleteMenu,
+  getMenus,
+  updateMenu,
+} from "../controllers/menu.controllers";
 
 //Create recipe router
-const menuRouter =Router()
-
+const menuRouter = Router();
 
 //Define your routes
-menuRouter.post('/menus',addMenu)
+menuRouter.post("/", addMenu);
 
-menuRouter.get('/menus',getMenus)
+menuRouter.get("/", getMenus);
 
-menuRouter.patch('/menus/:id',updateMenu)
+menuRouter.patch("/:id", updateMenu);
 
-menuRouter.delete('/menus/:id',deleteMenu)
+menuRouter.delete("/:id", deleteMenu);
 
 export default menuRouter;

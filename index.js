@@ -1,7 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-
+import userRouter from './routes/user.routes.js';
+import mealRouter from './routes/meal.routes.js';
+import menuRouter from './routes/menu.routes.js';
+import recipeRouter from './routes/recipe.routes.js';
 
 // Create express app
 const app = express();
@@ -14,7 +17,10 @@ app.use(cors());
 
 
 // Load routes
-
+app.use('/api/users', userRouter);
+app.use('/api/menus', menuRouter);
+app.use('/api/meals', mealRouter);
+app.use('/api/recipes', recipeRouter);
 
 
 
