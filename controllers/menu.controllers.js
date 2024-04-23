@@ -1,16 +1,14 @@
-import { MenuModel } from "../models/recipe.models";
+import { MenuModel } from "../models/menu.models.js";
 
 export const addMenu = async (req, res, next) => {
     try {
-
         //Add menu to database
         const createResult = await MenuModel.create({
             ...req.body,
-            image: req.file.filename
+            userId: req.auth.id
         });
         //Return response
         res.status(201).json(createResult);
-
     } catch (error) {
         next(error);
     }
@@ -18,14 +16,14 @@ export const addMenu = async (req, res, next) => {
 export const getMenus = async (req, res, next) => {
     try {
         //Get all menus from database
-        const findResult = await MenuModel.find();
+        const findResult = await MenuModel.find(req.query);
         //Return response
         res.status(200).json(findResult)
-
     } catch (error) {
         next(error);
     }
 }
+
 export const updateMenu = (req, res) => {
     res.send(`Update single receipe! by id: ${req.params.id}`);
 }

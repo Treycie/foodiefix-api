@@ -1,9 +1,9 @@
-import {Schema, Types, model} from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 const recipeSchema = new Schema({
-    mealId: { type:Types.ObjectId,required:true},
-    ingredients: {type: String, required: true},
-    instructions: {type: String, required: true},
-   });
+    mealId: { type: Types.ObjectId, required: true },
+    ingredients: { type: String, required: true },
+    instructions: { type: String, required: true },
+});
 
-   export const RecipeModel =model('recipe',recipeSchema,'recipe');
+export const RecipeModel = model('recipe', recipeSchema, 'recipe');

@@ -4,10 +4,14 @@ import {
   deleteMenu,
   getMenus,
   updateMenu,
-} from "../controllers/menu.controllers";
+} from "../controllers/menu.controllers.js";
+import { checkUserToken } from "../middlewares/auth.middleware.js";
 
 //Create recipe router
 const menuRouter = Router();
+
+// Apply middlewares
+menuRouter.use(checkUserToken);
 
 //Define your routes
 menuRouter.post("/", addMenu);
